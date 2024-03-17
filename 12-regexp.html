@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp</title>
+</head>
+<body>
+<script>
+
+    {
+        //create regex
+
+        const regex1 = /fathur/;
+        const regex2 = new RegExp("fathur");
+        const regex3 = new RegExp(/fathur/);
+    }
+
+    {
+
+        // test regex
+
+        const name = "fathur rahman abdullah andito";
+        const regex = /fathur/;
+
+        const result = regex.exec(name);
+        console.info(result);
+        console.info(regex.exec("tidak ada"));
+
+        const test = regex.test(name);
+        console.info(test);
+        console.info(regex.test("tidak ada"));
+
+    }
+
+    {
+
+        //regex modifier
+
+        const name = "fathur rahman\nFathur abdullah\nFathur Rahman";
+        const regex1 = /^e.o/igm
+        const regex2 = /rahman/ig
+
+        let result;
+        while ((result = regex1.exec(name)) !== null) {
+            console.info(result);
+        }
+
+        while ((result = regex2.exec(name)) !== null) {
+            console.info(result);
+        }
+
+    }
+
+    {
+
+        // advanced regex
+
+        const regex = /fath[ioaeu]/ig
+
+        const name = "fathar fathir fathur father fathor fathur fathir fathor";
+        let result;
+        while ((result = regex.exec(name)) !== null) {
+            console.info(result);
+        }
+
+    }
+
+    {
+
+        const name = "fathar fathir fathur father fathor fathur fathir fathor";
+
+        console.info(name.match(/fath[aiueo]/ig));
+        console.info(name.search(/fath[aiueo]/ig));
+        console.info(name.replace(/fath[aiueo]/i, "kamu"));
+        console.info(name.replaceAll(/fath[aiueo]/ig, "kamu"));
+        console.info(name.split(/e/ig));
+
+    }
+
+</script>
+</body>
+</html>
